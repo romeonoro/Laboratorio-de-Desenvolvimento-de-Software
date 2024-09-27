@@ -1,0 +1,322 @@
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.31 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.01 sec)
+
+mysql> create database BDAula01;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bdaula01           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use bdaula01;
+Database changed
+mysql> CREATE TABLE pessoa (
+    -> id smallint AUTO_INCREMENT PRIMARY KEY,
+    -> nome Varchar(50) NOT NULL,
+    -> sexo Varchar(1) NOT NULL,
+    -> idioma Varchar(10) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc pessoa
+    ->
+    -> desc pessoa;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc pessoa' at line 3
+mysql> desc pessoa;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | smallint    | NO   | PRI | NULL    | auto_increment |
+| nome   | varchar(50) | NO   |     | NULL    |                |
+| sexo   | varchar(1)  | NO   |     | NULL    |                |
+| idioma | varchar(10) | NO   |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_bdaula01 |
++--------------------+
+| pessoa             |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO pessoa (nome, sexo, idioma)
+    -> VALUES ("Romeo", "M", "Português");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from pessoa;
++----+-------+------+------------+
+| id | nome  | sexo | idioma     |
++----+-------+------+------------+
+|  1 | Romeo | M    | Português  |
++----+-------+------+------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO pessoa (nome, sexo, idioma)
+    -> VALUES
+    -> ("Anthony", "M", "Inglês"),
+    -> ("Bruno", "M", "Inglês"),
+    -> ("Vicenzo", "M", "Português"),
+    -> ("Matheus", "F", "Mandarim"),
+    -> ("Ricardo", "M", "Português");
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from pessoa;
++----+---------+------+------------+
+| id | nome    | sexo | idioma     |
++----+---------+------+------------+
+|  1 | Romeo   | M    | Português  |
+|  2 | Anthony | M    | Inglês     |
+|  3 | Bruno   | M    | Inglês     |
+|  4 | Vicenzo | M    | Português  |
+|  5 | Matheus | F    | Mandarim   |
+|  6 | Ricardo | M    | Português  |
++----+---------+------+------------+
+6 rows in set (0.00 sec)
+
+mysql> create database escola;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use escola;
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bdaula01           |
+| escola             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> create table alunos(
+    -> id int auto_increment primary key,
+    -> nome varchar(50),
+    -> idade int,
+    -> curso varchar(50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+mysql> create table alunos (
+    -> id int auto_increment primary key,
+    -> nome varchar(50),
+    -> idade int,
+    -> curso varchar(50)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO alunos (nome, idade, curso)
+    -> VALUES
+    -> ('Romeo', '19', 'CC'),
+    -> ('Romeo', '19', 'CC');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO alunos (nome, idade, curso)
+    -> VALUES
+    -> ("Romeo", 19, "CC"),
+    -> ("Anthony", 21, "UFC"),
+    -> ("Bruno", 19, "POD"),
+    -> ("Gilberto", 20, "SI");
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO alunos(nome,idade,curso)
+    -> VALUES
+    -> ("Ricardo", 30, "TI");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM alunos
+    -> SELECT * FROM alunos;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT * FROM alunos' at line 2
+mysql> SELECT * FROM alunos;
++----+----------+-------+-------+
+| id | nome     | idade | curso |
++----+----------+-------+-------+
+|  1 | Romeo    |    19 | CC    |
+|  2 | Romeo    |    19 | CC    |
+|  3 | Romeo    |    19 | CC    |
+|  4 | Anthony  |    21 | UFC   |
+|  5 | Bruno    |    19 | POD   |
+|  6 | Gilberto |    20 | SI    |
+|  7 | Ricardo  |    30 | TI    |
++----+----------+-------+-------+
+7 rows in set (0.00 sec)
+
+mysql> create table professores(
+    -> id int auto_increment primary key,
+    -> nome varchar(50),
+    -> idade int,
+    -> disciplina varchar(50)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into professores(nome, idade, disciplina)
+    -> values
+    -> ("Alexandre", 50, "Banco de Dados"),
+    -> ("Sylvio", 50, "Redes"),
+    -> ("Mirkos", 45, "Python");
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from professores
+    -> ^C
+mysql> select * from professores;
++----+-----------+-------+----------------+
+| id | nome      | idade | disciplina     |
++----+-----------+-------+----------------+
+|  1 | Alexandre |    50 | Banco de Dados |
+|  2 | Sylvio    |    50 | Redes          |
+|  3 | Mirkos    |    45 | Python         |
++----+-----------+-------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> create table matriculas(
+    -> id int auto_increment primary key,
+    -> id_aluno int,
+    -> id_professor int,
+    -> data_matricula DATE,
+    -> foreign key (id_aluno) references alunos(id),
+    -> foreign key (id_professore) references professores(id)
+    -> );
+ERROR 1072 (42000): Key column 'id_professore' doesn't exist in table
+mysql> create table matriculas(
+    -> id int auto_increment primary key,
+    -> id_aluno int,
+    -> id_professor int,
+    -> data_matricula DATE,
+    -> foreign key (id_aluno) references alunos(id),
+    -> foreign key (id_professor) references professores(id)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from matriculas;
+Empty set (0.00 sec)
+
+mysql> insert into table matriculas(id_aluno, id_professor, data_matricula)
+    -> values
+    -> (1, 1, "2024-09-17"),
+    -> (2, 2, "2024-09-16"),
+    -> (3, 3, "2024-09-15"),
+    -> (4, 1, "2024-09-14"),
+    -> (5, 2, "2024-09-13");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table matriculas(id_aluno, id_professor, data_matricula)
+values
+(1, 1, "2024-09-' at line 1
+mysql> insert into matriculas(id_aluno, id_professor, data_matricula)
+    -> values
+    -> (1, 1, "2024-09-17"),
+    -> (2, 2, "2024-09-16"),
+    -> (3, 3, "2024-09-15"),
+    -> (4, 1, "2024-09-14"),
+    -> (5, 2, "2024-09-13");
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT nome, curso FROM alunos;
++----------+-------+
+| nome     | curso |
++----------+-------+
+| Romeo    | CC    |
+| Romeo    | CC    |
+| Romeo    | CC    |
+| Anthony  | UFC   |
+| Bruno    | POD   |
+| Gilberto | SI    |
+| Ricardo  | TI    |
++----------+-------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT nome, disciplina FROM professores;
++-----------+----------------+
+| nome      | disciplina     |
++-----------+----------------+
+| Alexandre | Banco de Dados |
+| Sylvio    | Redes          |
+| Mirkos    | Python         |
++-----------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> use bd01
+ERROR 1049 (42000): Unknown database 'bd01'
+mysql> use bdaula01
+Database changed
+mysql> select * from pessoa;
++----+---------+------+------------+
+| id | nome    | sexo | idioma     |
++----+---------+------+------------+
+|  1 | Romeo   | M    | Português  |
+|  2 | Anthony | M    | Inglês     |
+|  3 | Bruno   | M    | Inglês     |
+|  4 | Vicenzo | M    | Português  |
+|  5 | Matheus | F    | Mandarim   |
+|  6 | Ricardo | M    | Português  |
++----+---------+------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from pessoa;
++----+---------+------+------------+
+| id | nome    | sexo | idioma     |
++----+---------+------+------------+
+|  1 | Romeo   | M    | Português  |
+|  2 | Anthony | M    | Inglês     |
+|  3 | Bruno   | M    | Inglês     |
+|  4 | Vicenzo | M    | Português  |
+|  5 | Matheus | F    | Mandarim   |
+|  6 | Ricardo | M    | Português  |
++----+---------+------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from pessoa;
++----+----------+------+------------+
+| id | nome     | sexo | idioma     |
++----+----------+------+------------+
+|  1 | Romeo    | M    | Português  |
+|  2 | Anthony  | M    | Inglês     |
+|  3 | Bruno    | M    | Inglês     |
+|  4 | Vicenzo  | M    | Português  |
+|  5 | Matheus  | F    | Mandarim   |
+|  6 | Ricardo  | M    | Português  |
+|  7 | Ricardin | M    | PORTUGUÊS  |
++----+----------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql>
