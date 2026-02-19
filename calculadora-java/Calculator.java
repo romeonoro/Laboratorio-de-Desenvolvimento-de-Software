@@ -1,5 +1,3 @@
-
-
 package com.calculator;
 
 import com.calculation.Calculation;
