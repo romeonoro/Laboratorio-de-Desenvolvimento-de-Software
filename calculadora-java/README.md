@@ -52,11 +52,10 @@ Contribuições são bem-vindas! Siga os passos abaixo:
    ```
 5. Abra um Pull Request.
 
-## Licença
-Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## Autor
 Desenvolvido por [Romeo](https://github.com/romeonoro).
+
 
 
 
