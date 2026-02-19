@@ -52,9 +52,9 @@ Contribuições são bem-vindas! Siga os passos abaixo:
    ```
 5. Abra um Pull Request.
 
-
 ## Autor
 Desenvolvido por [Romeo](https://github.com/romeonoro).
+
 
 
 
