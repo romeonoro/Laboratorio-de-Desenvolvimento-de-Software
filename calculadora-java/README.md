@@ -56,6 +56,7 @@ Contribuições são bem-vindas! Siga os passos abaixo:
 Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## Autor
-Desenvolvido por [Seu Nome](https://github.com/ewertondrigues02).
+Desenvolvido por [Romeo](https://github.com/romeonoro).
+
 
 
